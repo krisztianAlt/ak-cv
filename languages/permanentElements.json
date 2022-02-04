@@ -1,0 +1,21 @@
+{
+    "programmingLanguages": ["Java SE", "Python", "Javascript"],
+    "serverSideFrameworks": ["Spring Boot", "Flask", "Node.js"],
+    "petProjects": [
+        {
+            "title": "Round Food",
+            "thumbnail": "images/",
+            "url": "https://round-food.herokuapp.com/"
+        },
+        {
+            "title": "Laptop Spider",
+            "thumbnail": "images/",
+            "url": "https://laptop-spider.herokuapp.com"
+        },
+        {
+            "title": "News About Europe",
+            "thumbnail": "images/",
+            "url": "https://news-about-europe.herokuapp.com/"
+        }
+    ]
+}
