@@ -8,13 +8,13 @@ html, body {
     height: 100%;
 }
 
-#lang-img {
+.lang-img {
     width: 50px;
     opacity: 1;
     transition: opacity .2s;
 }
 
-#lang-img:hover {
+.lang-img:hover {
     opacity: 0.3;
     transition: opacity .2s;
 }
