@@ -45,6 +45,8 @@ function showPermanentElements(data){
 
 function showLanguageDependentElements(data){
     console.log("here comes language dependent elements:" , data);
+    console.log(data.language);
+    console.log(data.languageCode);
 }
 
 function showText(){
