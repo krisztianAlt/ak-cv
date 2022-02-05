@@ -8,19 +8,7 @@ function checkEarlierLanguageSetting(){
     }
 }
 
-function getPermanentElements() {
-    /*
-    $.ajax({ 
-        url: "languages/permanentElements.json", 
-        dataType: "json",
-        async: false,
-        success: function (dataPackage) {
-            console.log(dataPackage);
-            showPermanentElements();
-        }
-    });
-    */
-    
+function getPermanentElements() {    
     let fetchOptions = {
         method: "GET",
         mode: "cors",
@@ -31,21 +19,16 @@ function getPermanentElements() {
             response => response.json(),
             err => console.error(err)
         )
-        .then(data => console.log(data));
-    
+        .then(data => showPermanentElements(data));
 }
 
 function getLanguageDependentElements() {
-    /*$.ajax({ 
-        url:  "/languages/" +  localStorage.getItem("user-lang") + ".json", 
-        dataType: "json",
-        async: false,
-        success: function (langDataPackage) {
-            console.log(langDataPackage);
-            // setImgAlternate();
-            showLanguageDependentElements();
-        }
-    });*/
+    fetch(window.location.href + "/languages/" + localStorage.getItem("user-lang") + ".json")
+        .then(
+            response => response.json(),
+            err => console.error(err)
+        )
+        .then(data => showLanguageDependentElements(data));
 }
 
 function setLanguage(lang) {
@@ -56,12 +39,12 @@ function changeLanguage(){
     
 }
 
-function showPermanentElements(){
-    console.log("here comes permanent elements")
+function showPermanentElements(data){
+    console.log("here comes permanent elements: ", data);
 }
 
-function showLanguageDependentElements(){
-    console.log("here comes language dependent elements")
+function showLanguageDependentElements(data){
+    console.log("here comes language dependent elements:" , data);
 }
 
 function showText(){
