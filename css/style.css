@@ -161,7 +161,7 @@ nav {
     background-color: var(--clr-dark);
     background-image: url('../images/other_pics/IMG_20220319_104009_2CS.jpg');
     background-size: cover;
-    background-blend-mode: multiply;
+    background-blend-mode: darken;
     text-align: center;
 }
 
@@ -184,11 +184,26 @@ nav {
     color: var(--clr-accent-variation-1);
 }
 
+
+@media (max-width: 599px) {
+    .skill {
+        margin-bottom: 2.5em;
+    }
+}
+
 @media (min-width: 600px) {
     .skills {
         display: flex;
         flex-wrap: wrap;
         margin: 0 auto;
+    }
+
+    .skill + .skill {
+        margin-left: 1.5em;
+    }
+
+    .skill {
+        margin-bottom: 1.5em;
     }
 }
 
