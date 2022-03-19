@@ -161,7 +161,7 @@ nav {
     background-color: var(--clr-dark);
     background-image: url('../images/other_pics/IMG_20220319_104009_2CS.jpg');
     background-size: cover;
-    background-blend-mode: darken;
+    background-blend-mode: multiply;
     text-align: center;
 }
 
@@ -199,7 +199,7 @@ nav {
     }
 
     .skill + .skill {
-        margin-left: 1.5em;
+        margin-left: 1em;
     }
 
     .skill {
