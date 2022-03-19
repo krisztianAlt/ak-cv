@@ -1,19 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV | A. K.</title>
-    <link rel="shortcut icon" type="image/x-icon" sizes="any" href="images/favicon.ico"/>    
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <img class="lang-img" src="images/en.png" onclick="window.open('index-en.html', '_self')" alt="English" />
-    <p>TEST TEXT</p>
-    <div id="hard-skills">
-    </div>
-    <div id="pet-projects">
-    </div>
-</body>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CV | A. K.</title>
+        <link rel="stylesheet" href="css/normalize/8.0.1/normalize.min.css">
+        <link rel="shortcut icon" type="image/x-icon" sizes="any" href="images/favicon.ico"/>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="images/krisztian_transparent.png" alt="Logo pic">
+            </div>
+
+            <img class="lang-img" src="images/en.png" onclick="window.open('index-en.html', '_self')" alt="English" />
+            
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#intro" class="nav-link">Bemutatkozás</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Szaktudás</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">Rólam</a></li>
+                    <li class="nav-item"><a href="#demos" class="nav-link">Demó projektek</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Intro -->
+        <section class="intro" id="intro">
+            <h1 class="section-title section-title-intro">Alt Krisztián</h1>
+            <p class="section-subtitle section-subtitle-intro">junior full stack fejlesztő</p>
+            <img src="images/portraits/ak_park_small_2.jpg" alt="My Photo" class="intro-img">
+        </section>
+
+        <!-- Skills -->
+        <section class="skill-section" id="skills">
+            <h2 class="section-title section-title-skills">Mit művelek?</h2>
+            <div class="skills">
+                <div class="skill">
+                    <h3>Programozási nyelvek</h3>
+                    <p>Java SE, Python, Javascript</p>
+                </div>
+                <div class="skill">
+                    <h3>Adatbázis-kezelés</h3>
+                    <p>SQL (PostgreSQL, MariaDB), JPA, Hibernate</p>
+                </div>
+                <div class="skill">
+                    <h3>Front-end</h3>
+                    <p>HTML, CSS, Bootstrap</p>
+                </div>
+                <div class="skill">
+                    <h3>Back-end</h3>
+                    <p>Spring Boot (Java), Flask (Python), Node.js (Javascript)</p>
+                </div>
+                <div class="skill">
+                    <h3>Webes technikák</h3>
+                    <p>REST architektúra, JSON formátumú adatcsere</p>
+                </div>
+                <div class="skill">
+                    <h3>Verziókezelés</h3>
+                    <p>Git, GitHub</p>
+                </div>
+                <div class="skill">
+                    <h3>Kódszerkesztők</h3>
+                    <p>VS Code, IntelliJ IDEA, Spring Tool Suite, Android Studio</p>
+                </div>
+                <div class="skill">
+                    <h3>Tesztelés</h3>
+                    <p>unittesztek írása (JUnit, Mockito), manuális tesztelés (statikus és dinamikus technikák), tesztesetek írása (TestLink), hibajegyek készítése (Redmine)</p>
+                </div>
+            </div>
+            <div class="skill-level">
+                <h3>Tudásszint</h3>
+                <p>pályakezdő, junior</p>
+            </div>
+            <a href="#demos" class="btn">Demó projektek</a>
+        </section>
+
+        <!-- About Me -->
+        <section class="about-me" id="about">
+            <h2 class="section-title section-title-about">Ki vagyok?</h2>
+            <p class="section-subtitle section-subtitle-about">lorem ipsum lorem ipsum lorem ipsum</p>
+
+            <div class="about-me-body">
+                <p></p>
+                <p></p>
+            </div>
+
+            <img src="images/portraits/ak_home_small.jpg" alt="My Photo 2">
+        </section>
+
+        <!-- Demo Projects -->
+        <section class="demos" id="demos">
+            <h2 class="section-title section-title-demos">Demó projektek</h2>
+            <p class="section-subtitle section-subtitle-demos">lorem ipsum lorem ipsum lorem ipsum</p>
+
+            <div class="portfolio">
+                <!-- Portfolio item 01 -->
+                <a href="https://round-food.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="portfolio-item">
+                    <img src="images/demo_screenshots/round_food_1_small.png" alt="Round Food" class="portfolio-img">
+                </a>
+                
+                <!-- Portfolio item 02 -->
+                <a href="https://laptop-spider.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="portfolio-item">
+                    <img src="images/demo_screenshots/laptop_spider_2_small.png" alt="Laptop Spider" class="portfolio-img">
+                </a>
+
+                <!-- Portfolio item 03 -->
+                <a href="https://news-about-europe.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="portfolio-item">
+                    <img src="images/demo_screenshots/news_3_small.png" alt="News About Europe" class="portfolio-img">
+                </a>
+
+                <!-- Portfolio item 04 -->
+                <a href="https://news-about-europe.herokuapp.com/android" target="_blank" rel="noopener noreferrer" class="portfolio-item">
+                    <img src="images/demo_screenshots/news_android_4_small.png" alt="News About Europe for Android" class="portfolio-img">
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <ul class="contact-list">
+                <li class="contact-list-item"><a href="https://github.com/krisztianAlt?tab=repositories" target="_blank" rel="noopener noreferrer" class="social-list-link">GitHub</a></li>
+                <li class="contact-list-item"><a href="mailto:alt.krisztian@gmail.com" class="footer-link">E-mail</a></li>
+            </ul>
+        </footer>
+
+    </body>
 </html>
