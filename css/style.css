@@ -198,26 +198,16 @@ nav {
         margin: 0 auto;
     }
 
-    .skill + .skill {
-        margin-left: 1em;
-    }
-
     .skill {
         margin-bottom: 1.5em;
+        padding: 0 1em 0 1em;
     }
 }
 
-@media (min-width: 600px) and (max-width: 799px) {
+@media (min-width: 600px) and (max-width: 999px) {
     .skill {
         flex: auto;
         width: 50%;
-    }
-}
-
-@media (min-width: 800px) and (max-width: 999px) {
-    .skill {
-        flex: auto;
-        width: 33.3%;
     }
 }
 
