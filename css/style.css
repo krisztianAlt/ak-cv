@@ -86,7 +86,9 @@ h3 {
 }
 
 .btn {
-    display: inline-block;
+    display: block;
+    width: fit-content;
+    margin: auto;
     padding: .5em 2.5em;
     background: var(--clr-accent);
     color: var(--clr-dark);
@@ -301,13 +303,37 @@ nav {
     text-align: center;
 }
 
+.demos img {
+    margin: .5em auto .5em auto;
+}
+
 .section-subtitle-demos {
     margin-bottom: 1em;
 }
 
 .portfolio-item {
+    padding: 1em;
+    margin-bottom: 2em;
     color: var(--clr-dark);
     background: url('../images/bg-body.png') var(--clr-light);
+}
+
+.portfolio-item-title {
+    margin-top: 1em;
+}
+
+.portfolio-item-title a {
+    text-decoration: none;
+    color: var(--clr-dark);
+}
+
+.portfolio-btns {
+    padding-bottom: 1em;
+}
+
+.additional-info {
+    padding-top: 1em;
+    display: block;
 }
 
 @media (min-width: 600px) {
@@ -315,5 +341,26 @@ nav {
         display: grid;
         gap: 1em;
         grid-template-columns: repeat(2, 1fr);
-    }   
+    }
+
+    .portfolio-item {
+        display: grid;
+        grid-template-areas:
+            "above-buttons"
+            "links";
+    }
+
+    .above-buttons {
+        grid-area: above-buttons;
+        align-self: start;
+    }
+
+    .portfolio-btns {
+        grid-area: links;
+        align-self: end;
+    }
+
+    .portfolio-item-text {
+        padding-top: 0;
+    }
 }
