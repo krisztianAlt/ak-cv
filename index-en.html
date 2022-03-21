@@ -8,50 +8,183 @@
         <link rel="stylesheet" href="css/normalize/8.0.1/normalize.min.css">
         <link rel="shortcut icon" type="image/x-icon" sizes="any" href="images/favicon.ico"/>
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+        <script src="js/index.js" defer></script>
     </head>
     <body>
         <header>
-            <div class="logo">
-                <img src="images/krisztian_transparent.png" alt="Logo pic">
-            </div>
-            
-            <img class="lang-img" src="images/hu.png" onclick="window.open('index.html', '_self')" alt="Magyar" />
+
+            <img class="lang-img" src="images/hu.png" onclick="window.open('index.html', '_self')" alt="Hungarian" />
             
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
             </button>
+
             <nav class="nav">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#" class="nav-link">Main page</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">My Services</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">About Me</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">My Work</a></li>
+                    <li class="nav-item"><a href="#intro" class="nav-link">Introduction</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About me</a></li>
+                    <li class="nav-item"><a href="#demos" class="nav-link">Demo projects</a></li>
                 </ul>
             </nav>
         </header>
 
-        <p>English page</p>
+        <!-- Intro -->
+        <section class="intro" id="intro">
+            <h1 class="section-title section-title-intro">Krisztián Alt</h1>
+            <p class="section-subtitle section-subtitle-intro">junior full stack fejlesztő</p>
+            <img src="images/portraits/ak_park_small_2.jpg" alt="My Photo" class="intro-img">
+        </section>
 
+        <!-- Skills -->
+        <section class="skill-section" id="skills">
+            <h2 class="section-title section-title-skills">What am I doing?</h2>
+            <div class="skills">
+                <div class="skill">
+                    <h3>Programming languages</h3>
+                    <p>Java SE, Python, Javascript</p>
+                </div>
+                <div class="skill">
+                    <h3>Database management</h3>
+                    <p>SQL (PostgreSQL, MariaDB), JPA, Hibernate</p>
+                </div>
+                <div class="skill">
+                    <h3>Front-end</h3>
+                    <p>HTML, CSS, Bootstrap</p>
+                </div>
+                <div class="skill">
+                    <h3>Back-end</h3>
+                    <p>Spring Boot (Java), Flask (Python), Node.js (Javascript)</p>
+                </div>
+                <div class="skill">
+                    <h3>Web techniques</h3>
+                    <p>REST architecture, data exchange in JSON format</p>
+                </div>
+                <div class="skill">
+                    <h3>Version control</h3>
+                    <p>Git, GitHub</p>
+                </div>
+                <div class="skill">
+                    <h3>Code editors</h3>
+                    <p>VS Code, IntelliJ IDEA, Spring Tool Suite, Android Studio</p>
+                </div>
+                <div class="skill">
+                    <h3>Testing</h3>
+                    <p>writing unit tests (JUnit, Mockito), manual testing (static and dynamic techniques), writing test cases (TestLink), making bug tickets (Redmine)</p>
+                </div>
+            </div>
+            <a href="#demos" class="btn">Demo projects</a>
+        </section>
 
+        <!-- About Me -->
+        <section class="about-me" id="about">
+            <h2 class="section-title section-title-about-me">Who am I?</h2>
+            <p class="section-subtitle section-subtitle-about-me">amphibian</p>
 
-        <!--
-            "petProjects": [
-                    {
-                        "title": "Round Food",
-                        "thumbnail": "images/",
-                        "url": "https://round-food.herokuapp.com/"
-                    },
-                    {
-                        "title": "Laptop Spider",
-                        "thumbnail": "images/",
-                        "url": "https://laptop-spider.herokuapp.com"
-                    },
-                    {
-                        "title": "News About Europe",
-                        "thumbnail": "images/",
-                        "url": "https://news-about-europe.herokuapp.com/"
-                    }
-                ]
-        -->
+            <div class="about-me-body">
+                <p>I am interested in both the arts (writing, music) and programming. The two areas are not as far apart as the first might seem. In both there is the joy of creation – to build something that didn't exist before.</p>
+                <p>Read my resume or play for more information:</p>
+                <div class="btn-section">
+                    <a href="pdf/cv_krisztian_alt.pdf" class="btn" download>Download CV</a>
+                    <a href="game-en.html" class="btn">Start game</a>
+                </div>
+            </div>
+
+            <img src="images/portraits/ak_home_small.jpg" alt="My Photo 2" class="about-me-img">
+        </section>
+
+        <!-- Demo Projects -->
+        <section class="demos" id="demos">
+            <h2 class="section-title section-title-demos">Demo projects</h2>
+            <p class="section-subtitle section-subtitle-demos">A selection from my work</p>
+
+            <div class="portfolio">
+                <!-- Portfolio item 01 -->
+                <div class="portfolio-item">
+                    <div class="above-buttons">
+                        <a href="https://round-food.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="portfolio-item-img-link">
+                            <img src="images/demo_screenshots/round_food_1_small.png" alt="Round Food" class="portfolio-img">
+                        </a>
+                        <h3 class="portfolio-item-title"><a href="https://round-food.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="portfolio-item-title-link">Round Food</a></h3>
+                        <p class="portfolio-item-text">Food ordering site. Java back-end in Spring Boot framework with Thymeleaf template engine. The following user profile can be used to log in: 
+                            <span class="additional-info">e-mail address: berci@freemail.hu</span><span>password: qwertz</span></p>
+                    </div>
+                    <div class="btn-section portfolio-btns">
+                        <a href="https://round-food.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="btn">
+                            <i class="fa fa-external-link" aria-hidden="true"></i> Open website</a>
+                        <a href="https://github.com/krisztianAlt/round-food" target="_blank" rel="noopener noreferrer" class="btn">
+                            <i class="fa fa-github" aria-hidden="true"></i> Open project on GitHub</a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio item 02 -->
+                <div class="portfolio-item">
+                    <div class="above-buttons">
+                        <a href="https://laptop-spider.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="portfolio-item-img-link">
+                            <img src="images/demo_screenshots/laptop_spider_2_small.png" alt="Laptop Spider" class="portfolio-img">
+                        </a>
+                        <h3 class="portfolio-item-title"><a href="https://laptop-spider.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="portfolio-item-title-link">Laptop Spider</a></h3>
+                        <p class="portfolio-item-text">Web scraper. A Media Markt webhelyén árusított laptopok adatait gyűjti be és listázza; Javascript back-end Node.js keretrendszerben.</p>
+                    </div>
+                    <div class="btn-section portfolio-btns">
+                        <div class="portfolio-btns-group">
+                            <a href="https://laptop-spider.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="btn">
+                                <i class="fa fa-external-link" aria-hidden="true"></i> Open website</a>
+                            <a href="https://github.com/krisztianAlt/laptop-spider" target="_blank" rel="noopener noreferrer" class="btn">
+                                <i class="fa fa-github" aria-hidden="true"></i> Open project on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio item 03 -->
+                <div class="portfolio-item">
+                    <div class="above-buttons">
+                        <a href="https://news-about-europe.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="portfolio-item-img-link">
+                            <img src="images/demo_screenshots/news_3_small.png" alt="News About Europe" class="portfolio-img">
+                        </a>
+                        <h3 class="portfolio-item-title"><a href="https://news-about-europe.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="portfolio-item-title-link">News About Europe</a></h3>
+                        <p class="portfolio-item-text">Hírkereső webhely. Listázza azokat a híreket, amelyekben megemlítik a térképen kiválasztott országot. Python back-end Flask keretrendszerben, Jinja template
+                            engine-nel.</p>
+                    </div>
+                    <div class="btn-section portfolio-btns">
+                        <a href="https://news-about-europe.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="btn">
+                            <i class="fa fa-external-link" aria-hidden="true"></i> Open website</a>
+                        <a href="https://github.com/krisztianAlt/news-about-europe" target="_blank" rel="noopener noreferrer" class="btn">
+                            <i class="fa fa-github" aria-hidden="true"></i> Open project on GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Portfolio item 04 -->
+                <div class="portfolio-item">
+                    <div class="above-buttons">
+                        <a href="https://news-about-europe.herokuapp.com/android" target="_blank" rel="noopener noreferrer" class="portfolio-item-img-link">
+                            <img src="images/demo_screenshots/news_android_4_small.png" alt="News About Europe for Android" class="portfolio-img">
+                        </a>
+                        <h3 class="portfolio-item-title"><a href="https://news-about-europe.herokuapp.com/android" target="_blank" rel="noopener noreferrer" class="portfolio-item-title-link">News About Europe for Android</a></h3>
+                        <p class="portfolio-item-text">A News About Europe webhely mobilapp-változata, Javában megírt hírkereső applikáció Androidra.</p>
+                    </div>
+                    <div class="btn-section portfolio-btns">
+                        <a href="https://news-about-europe.herokuapp.com/android" target="_blank" rel="noopener noreferrer" class="btn">
+                            <i class="fa fa-external-link" aria-hidden="true"></i> Open website</a>
+                        <a href="https://github.com/krisztianAlt/news-about-europe-for-android" target="_blank" rel="noopener noreferrer" class="btn">
+                            <i class="fa fa-github" aria-hidden="true"></i> Open project on GitHub</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <ul class="contact-list">
+                <li class="contact-list-item">
+                    <a href="https://github.com/krisztianAlt?tab=repositories" target="_blank" rel="noopener noreferrer" class="footer-link"><i class="fa fa-github" aria-hidden="true"></i></a>
+                </li>
+                <li class="contact-list-item">
+                    <a href="mailto:alt.krisztian@gmail.com" class="footer-link"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </footer>
     </body>
 </html>
