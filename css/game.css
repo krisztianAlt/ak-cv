@@ -1,0 +1,29 @@
+@import url('../fonts/PressStart2P_init.css');
+
+.game-container {
+    padding: 2em 2em;
+}
+
+.about-game {
+    margin: auto;
+    max-width: 1000px;
+    margin-bottom: 3em;
+}
+
+.about-game h2 {
+    text-align: center;
+}
+
+#canvas-container {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#break-out-scene {
+    margin: auto;
+}
+
+.back-to-main-screen {
+    margin-top: 3em;
+    margin-bottom: 2em;
+}

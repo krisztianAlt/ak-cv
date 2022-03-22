@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +8,35 @@
     <link rel="stylesheet" href="css/normalize/8.0.1/normalize.min.css">
     <link rel="shortcut icon" type="image/x-icon" sizes="any" href="images/favicon.ico"/>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <script src="js/index.js" defer></script>
+    <script src="js/game.js" defer></script>
 </head>
 <body>
-    
+    <header>
+        <img class="lang-img" src="images/en.png" onclick="window.open('game-en.html', '_self')" alt="English" />
+        
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Főoldal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="game-container">
+        <div class="about-game">
+            <h2>Falbontó</h2>
+            <p>Játssz végig három menetet ezzel a klasszikus játékkal. Minden pályán találsz két piros téglát – miután eltalálod őket, a játéktér alatti információs mezőben elolvashatsz egy-egy érdekességet rólam, az önéletrajzom kiegészítéseként. Sok sikert! ;)</p>
+        </div>
+        <div id="canvas-container"></div>
+        <div class="back-to-main-screen">
+            <a href="index.html" class="btn">Vissza a főoldalra</a>
+        </div>
+    </div>
 </body>
 </html>

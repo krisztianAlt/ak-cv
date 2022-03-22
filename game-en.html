@@ -5,8 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breakout | K. A.</title>
+    <link rel="stylesheet" href="css/normalize/8.0.1/normalize.min.css">
+    <link rel="shortcut icon" type="image/x-icon" sizes="any" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <script src="js/index.js" defer></script>
+    <script src="js/game.js" defer></script>
 </head>
 <body>
-    
+    <header>
+        <img class="lang-img" src="images/hu.png" onclick="window.open('game.html', '_self')" alt="Hungarian" />
+        
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Main page</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="game-container">
+        <div class="about-game">
+            <h2>Breakout</h2>
+            <p>Play through three rounds with this classic game. You'll find two red bricks on each level - once you hit them, you can read an interesting thing about me in the information field below the playing field, in addition to my resume. Good luck! ;)</p>
+        </div>
+        <div id="canvas-container"></div>
+        <div class="back-to-main-screen">
+            <a href="index-en.html" class="btn">Back to main page</a>
+        </div>
+    </div>
 </body>
 </html>
