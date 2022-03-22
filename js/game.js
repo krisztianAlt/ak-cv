@@ -12,17 +12,13 @@ var actualLevel = 1;
 var maxLevel = 3;
 var score = 0;
 var hitPoint = 10;
-var messages = {
-    infos: "Move: left and right arrow, or mouse. Start game: S, pause: P, back to the beginning: B.",
-    aboutMe: ["My first computer was a Commodore Plus/4. My parents gave it to me at Christmas 1987.",
-            'My favourite Bud Spencer & Terence Hill movie is "Odds and Evens".',
-            "I played through Quake 2 five times.",
-            "Favourite rock bands: Queen, Pink Floyd, Omega.",
-            "My pet project is a grammar training software.",
-            "I wrote a horror novel that was published by Magvető Kiadó in 2012."],
-    win: "You win! Congratulations! Please, press B to start again.",
-    lose: "Game over. Please, press B to start again."
-};
+
+var messages;
+var scorePrefix;
+var levelPrefix;
+var livesPrefix;
+initMessagesAndPrefixes();
+
 var aboutMeActualIndex = 0;
 var actualMessage = messages.infos;
 var textMarginTopAndBottom = canvasHeight * 0.05;
@@ -98,6 +94,41 @@ function initCanvasSize() {
         canvasHeight = window.innerHeight;
     } else {
         canvasHeight = canvasDefaultHeight;
+    }
+}
+
+function initMessagesAndPrefixes() {
+    let lang = document.getElementsByTagName('html')[0].getAttribute('lang'); 
+    if (lang === "hu") {
+        messages = {
+            infos: "Mozgatás: balra és jobbra nyíl. Játék indítása: S, szünet: P, vissza az elejére: B.",
+            aboutMe: ["Első számítógépem egy Commodore Plus/4 volt. A szüleimtől kaptam 1987 karácsonyán.",
+                    'A kedvenc Bud Spencer–Terence Hill-filmem az "...és megint dühbe jövünk".',
+                    "Ötször játszottam végig a Quake 2-t.",
+                    "Kedvenc rockzenekarok: Queen, Pink Floyd, Omega.",
+                    "Szabadidőmben egy gyerekeknek szóló nyelvtani oktatóprogramon dolgozom.",
+                    "Írtam egy horrorregényt, amit a Magvető Kiadó jelentetett meg 2012-ben."],
+            win: "Nyertél, gratulálok! Nyomd meg a B gombot az újrakezdéshez, vagy térj vissza a főoldalra.",
+            lose: "Játék vége. Köszönöm a próbálkozást. Kérlek, nyomd meg a B gombot az újrakezdéshez."
+        };
+        scorePrefix = "Pont";
+        levelPrefix = "Szint";
+        livesPrefix = "Élet";
+    } else if (lang === "en") {
+        messages = {
+            infos: "Move: left and right arrow. Start game: S, pause: P, back to the beginning: B.",
+            aboutMe: ["My first computer was a Commodore Plus/4. My parents gave it to me at Christmas 1987.",
+                    'My favourite Bud Spencer & Terence Hill movie is "Odds and Evens".',
+                    "I played through Quake 2 five times.",
+                    "Favourite rock bands: Queen, Pink Floyd, Omega.",
+                    "My pet project is a grammar training software.",
+                    "I wrote a horror novel that was published by Magvető Kiadó in 2012."],
+            win: "You win! Congratulations! Please, press B to start again.",
+            lose: "Game over. Please, press B to start again."
+        };
+        scorePrefix = "Score";
+        levelPrefix = "Level";
+        livesPrefix = "Lives";
     }
 }
 
@@ -353,12 +384,12 @@ function showText(text, textXPos, textYPos) {
 }
 
 function showGameStats() {
-    let scoreString = "Score: " + score.toString();
+    let scoreString = scorePrefix + ": " + score.toString();
     showText(scoreString, marginLeft, textMarginTopAndBottom);
-    let levelString = "Level: " + actualLevel.toString();
+    let levelString = levelPrefix + ": " + actualLevel.toString();
     let levelStringLength = CANVAS_CONTEXT.measureText(levelString).width;
     showText(levelString, canvasWidth/2 - levelStringLength/2, textMarginTopAndBottom);
-    let lifeString = "Lives: " + actualPlayerLife.toString();
+    let lifeString = livesPrefix + ": " + actualPlayerLife.toString();
     let lifeStringLength = CANVAS_CONTEXT.measureText(lifeString).width;
     showText(lifeString, canvasWidth - marginRight - lifeStringLength, textMarginTopAndBottom);
     showText(separatorString, 0, textMarginTopAndBottom * 2 );
