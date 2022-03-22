@@ -35,7 +35,7 @@ var maxRows = 5;
 var gap = canvasWidth * 0.05;
 var brickWidth = (canvasWidth - gap) / columns - gap;
 var brickHeight = ( (canvasHeight - gap) / maxRows - gap ) * 0.4;
-var normalBrickColor = "#2d964b";
+var normalBrickColor = "#4f9563";
 var infoBrickColor = "#e81010";
 var marginTopBricks = textMarginTopAndBottom + textFontSize + gap;
 var marginLeft = canvasWidth * 0.05;
@@ -53,7 +53,6 @@ var rightArrow = false;
 
 var ballRadius = 6;
 var defaultBallSpeed = 3;
-var actualBallSpeed = defaultBallSpeed;
 var ballColor = "#703d75";
 
 const CANVAS_CONTAINER = document.querySelector("#canvas-container");
@@ -79,9 +78,9 @@ var ball = {
     xPos: GAME_CANVAS.width / 2,
     yPos: paddle.yPos - ballRadius,
     radius: ballRadius,
-    speed: actualBallSpeed,
-    xStepSize: actualBallSpeed * getRandomNumber(),
-    yStepSize: actualBallSpeed * -1
+    speed: defaultBallSpeed,
+    xStepSize: defaultBallSpeed * getRandomNumber(),
+    yStepSize: defaultBallSpeed * -1
 };
 
 function initCanvasSize() {
@@ -104,10 +103,10 @@ function initMessagesAndPrefixes() {
             infos: "Mozgatás: balra és jobbra nyíl. Játék indítása: S, szünet: P, vissza az elejére: B.",
             aboutMe: ["Első számítógépem egy Commodore Plus/4 volt. A szüleimtől kaptam 1987 karácsonyán.",
                     'A kedvenc Bud Spencer–Terence Hill-filmem az "...és megint dühbe jövünk".',
-                    "Ötször játszottam végig a Quake 2-t.",
+                    "A Quake 2-t ötször játszottam végig.",
                     "Kedvenc rockzenekarok: Queen, Pink Floyd, Omega.",
                     "Szabadidőmben egy gyerekeknek szóló nyelvtani oktatóprogramon dolgozom.",
-                    "Írtam egy horrorregényt, amit a Magvető Kiadó jelentetett meg 2012-ben."],
+                    "Egyebek mellett írtam egy horrorregényt, amit a Magvető Kiadó jelentetett meg 2012-ben."],
             win: "Nyertél, gratulálok! Nyomd meg a B gombot az újrakezdéshez, vagy térj vissza a főoldalra.",
             lose: "Játék vége. Köszönöm a próbálkozást. Kérlek, nyomd meg a B gombot az újrakezdéshez."
         };
@@ -218,11 +217,14 @@ function moveBall() {
     ball.yPos = ball.yPos + ball.yStepSize;
 }
 
-function resetBall() {
-    ball.xPos = GAME_CANVAS.width/2,
-    ball.yPos = paddle.yPos - ballRadius,
-    ball.xStepSize = ball.speed * getRandomNumber(),
-    ball.yStepSize = ball.speed * -1
+function resetBall(gameIsOver) {
+    ball.xPos = GAME_CANVAS.width/2;
+    ball.yPos = paddle.yPos - ballRadius;
+    if (gameIsOver) {
+        ball.speed = defaultBallSpeed;
+    }
+    ball.xStepSize = ball.speed * getRandomNumber();
+    ball.yStepSize = ball.speed * -1;
 }
 
 function resetGame(){
@@ -232,8 +234,7 @@ function resetGame(){
     actualRows = defaultRows;
     resetBricks();
     resetPaddle();
-    resetBall();
-    ball.speed = defaultBallSpeed;
+    resetBall(true);
     actualPlayerLife = maxPlayerLife;
     actualLevel = 1;
     score = 0;
@@ -241,7 +242,7 @@ function resetGame(){
 
 function gameOver(result) {
     gameStatus = "game over";
-    resetBall();
+    resetBall(true);
     if (result == "win") {
         actualMessage = messages.win;
     } else if (result == "lose") {
@@ -271,7 +272,7 @@ function levelUp() {
         paddle.width = paddle.width - paddleDefaultWidth * 0.2;
         ball.speed = ball.speed + 0.75;
         resetBricks();
-        resetBall();
+        resetBall(false);
     }
 }
 
@@ -287,7 +288,7 @@ function checkBallWallCollision() {
         if (actualPlayerLife < 1) {
             gameOver("lose");
         } else {
-            resetBall();
+            resetBall(false);
         }
     }
 }
