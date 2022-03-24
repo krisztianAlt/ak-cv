@@ -147,11 +147,25 @@ header {
     padding: 1em;
 }
 
-/*
-.logo {
-    max-width: 100px;
+.language-selector {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    cursor: pointer;
 }
-*/
+
+.lang-img {
+    right: 1em;
+    top: 1em;
+    width: 50px;
+    opacity: 1;
+    transition: opacity .2s;
+}
+
+.lang-img:hover {
+    opacity: 0.6;
+    transition: opacity .2s;
+}
 
 .nav {
     position: fixed;
@@ -248,20 +262,6 @@ header {
 
 .hamburger::after {
     bottom: 6px;
-}
-
-.lang-img {
-    position: absolute;
-    right: 1em;
-    top: 1em;
-    width: 50px;
-    opacity: 1;
-    transition: opacity .2s;
-}
-
-.lang-img:hover {
-    opacity: 0.6;
-    transition: opacity .2s;
 }
 
 /* Intro section */
@@ -536,7 +536,7 @@ footer a {
 
 .contact-list li {
     display: inline;
-    margin: 0 .7em 0 .7rem;
+    padding: 0 .7em 0 .7rem;
 }
 
 .contact-list li:hover {
@@ -545,4 +545,10 @@ footer a {
 
 .footer-link:hover {
     text-decoration: none;
+}
+
+.contact-list-item i {
+    padding: 0;
+    margin-left: .5em;
+    margin-right: .5em;
 }
