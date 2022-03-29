@@ -270,6 +270,7 @@ header {
 
 .intro {
     position: relative;
+    padding-top: 4em;
 }
 
 .intro-img {
@@ -282,6 +283,7 @@ header {
 
 @media (min-width: 600px) {
     .intro {
+        padding-top: 4.5em;
         display: grid;
         width: min-content;
         margin: 0 auto;
