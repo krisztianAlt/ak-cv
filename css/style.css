@@ -351,6 +351,11 @@ header {
     margin: 0 auto;
 }
 
+.skill ul {
+    text-align: left;
+    hyphens: auto;
+}
+
 @media (max-width: 599px) {
     .skill {
         margin-bottom: 2.5em;
@@ -395,6 +400,11 @@ header {
 
 .about-me-img {
     box-shadow: var(--bs);
+}
+
+.about-me-body p {
+    text-align: justify;
+    hyphens: auto;
 }
 
 .btn-section .btn {
@@ -448,6 +458,10 @@ header {
 .demos {
     color: var(--clr-light);
     background: url('../images/bg-body.png') var(--clr-dark);
+}
+
+.section-title-demos,
+.section-subtitle-demos {
     text-align: center;
 }
 
@@ -474,6 +488,7 @@ header {
 
 .portfolio-item-title {
     margin-top: 1em;
+    text-align: center;
 }
 
 .portfolio-item-title a {
@@ -486,8 +501,18 @@ header {
 }
 
 .additional-info {
-    padding-top: 1em;
+    text-align: center;
     display: block;
+}
+
+.portfolio-item-text {
+    text-align: justify;
+    hyphens: auto;
+    padding: 0 .5em 0 .5em;
+}
+
+.portfolio-item-text span:first-of-type {
+    padding-top: 1em;
 }
 
 @media (min-width: 600px) {
@@ -516,6 +541,7 @@ header {
 
     .portfolio-item-text {
         padding-top: 0;
+        padding: 0 1em 0 1em;
     }
 }
 

@@ -6,12 +6,17 @@
 
 .about-game {
     margin: auto;
-    max-width: 1000px;
+    max-width: 950px;
     margin-bottom: 3em;
 }
 
 .about-game h2 {
     text-align: center;
+}
+
+.about-game p {
+    text-align: justify;
+    hyphens: auto;
 }
 
 #canvas-container {
