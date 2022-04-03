@@ -32,3 +32,76 @@
     margin-top: 3em;
     margin-bottom: 2em;
 }
+
+#game-button-container {
+    display: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: var(--fs-btn);
+    margin: auto;
+    max-width: 950px;
+}
+
+.game-button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.move-btns,
+.controller-btns {
+    display: flex;
+    justify-content: center;
+}
+
+.move-btns {
+    margin-top: 2em;
+    margin-bottom: 3em;
+    gap: 5em;
+}
+
+.controller-btns {
+    margin-top: 2em;
+    margin-bottom: 3em;
+    gap: 1.5em;
+}
+
+.move-btns .game-button {
+    background-color: #4f9563;
+    letter-spacing: 2px;
+    padding: .5em 2em;
+    box-shadow: 0 .4em #999;
+}
+
+.move-btns .game-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 .3em #666;
+    transform: translateY(.2em);
+}
+
+.controller-btns .game-button {
+    background-color: #a9a9a9;
+    font-size: calc(var(--fs-btn) * .75);
+    letter-spacing: 2px;
+    padding: .6em 1em;
+    box-shadow: 0 .4em #999;
+}
+
+.controller-btns .game-button:active {
+    background-color: #918989;
+    box-shadow: 0 .2em #666;
+    transform: translateY(.2em);
+}
+
+#game-button-container::after {
+    font-size: var(--fs-h1);
+    content: '';
+    display: block;
+    width: 3em;
+    height: 1px;
+    margin: 0.5em auto 0;
+    background-color: var(--clr-dark);
+    opacity: 0.5;
+}

@@ -95,7 +95,6 @@ function detectMobileDeviceOrDesktop() {
     }
 }
 
-
 function initCanvasSize() {
     let gameContainer = document.getElementsByClassName("game-container")[0];
     let style = gameContainer.currentStyle || window.getComputedStyle(gameContainer);
@@ -115,9 +114,16 @@ function initCanvasSize() {
 
 function initMessagesAndPrefixes() {
     let lang = document.getElementsByTagName('html')[0].getAttribute('lang'); 
+    let infoText;
     if (lang === "hu") {
+        if (gameRunsOnMobileDevice) {
+            infoText = "A játék irányításához használd a játéktér alatti gombokat.";
+        } else {
+            infoText = "Mozgatás: balra és jobbra nyíl. Játék indítása: S, szünet: P, vissza az elejére: B.";
+        }
+
         messages = {
-            infos: "Mozgatás: balra és jobbra nyíl. Játék indítása: S, szünet: P, vissza az elejére: B.",
+            infos: infoText,
             aboutMe: ["Első számítógépem egy Commodore Plus/4 volt. A szüleimtől kaptam 1987 karácsonyán.",
                     'A kedvenc Bud Spencer–Terence Hill-filmem az "...és megint dühbe jövünk".',
                     "A Quake 2-t ötször játszottam végig.",
@@ -131,8 +137,13 @@ function initMessagesAndPrefixes() {
         levelPrefix = "Szint";
         livesPrefix = "Élet";
     } else if (lang === "en") {
+        if (gameRunsOnMobileDevice) {
+            infoText = "Use the buttons below to control the game.";
+        } else {
+            infoText = "Move: left and right arrow. Start game: S, pause: P, back to the beginning: B.";
+        }
         messages = {
-            infos: "Move: left and right arrow. Start game: S, pause: P, back to the beginning: B.",
+            infos: infoText,
             aboutMe: ["My first computer was a Commodore Plus/4. My parents gave it to me at Christmas 1987.",
                     'My favourite Bud Spencer & Terence Hill movie is "Odds and Evens".',
                     "I played through Quake 2 five times.",
@@ -156,7 +167,6 @@ function initSeparatorString() {
 }
 
 function createBricks() {
-    console.log("marginTopBricks: " + marginTopBricks);
     for (let rowIndex = 0; rowIndex < actualRows; rowIndex++) {
         for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
             let newBrick = {
@@ -447,35 +457,81 @@ function showMessages() {
     showText(separatorString, 0, GAME_CANVAS.height - textMarginTopAndBottom * 2 );
 }
 
-document.addEventListener("keydown", function(event){
-    if (event.key == "ArrowLeft"){
+if (gameRunsOnMobileDevice) {
+    document.getElementById("game-button-container").style.display = "block";
+
+    document.getElementById("left-btn").addEventListener("touchstart", function(event){
         event.preventDefault();
         leftArrow = true;
-    } else if (event.key == "ArrowRight"){
+    });
+
+    document.getElementById("right-btn").addEventListener("touchstart", function(event){
         event.preventDefault();
         rightArrow = true;
-    } else if (event.key == "S" || event.key == "s") {
+    });
+
+    document.getElementById("start-btn").addEventListener("click", function(event){
+        event.preventDefault();
         gameStatus = "in game";
-    } else if (event.key == "B" || event.key == "b") {
-        resetGame();
-    } else if (event.key == "P" || event.key == "p") {
+    });
+
+    document.getElementById("pause").addEventListener("click", function(event){
+        event.preventDefault();
         if (gameStatus == "pause") {
             gameStatus = "in game";
         } else {
             gameStatus = "pause";
         }
-    }
-});
+    });
 
-document.addEventListener("keyup", function(event){
-    if (event.key == "ArrowLeft"){
+    document.getElementById("new-game").addEventListener("click", function(event){
+        event.preventDefault();
+        resetGame();
+    });
+
+    document.getElementById("left-btn").addEventListener("touchend", function(event){
         event.preventDefault();
         leftArrow = false;
-    } else if (event.key == "ArrowRight"){
+    });
+
+    document.getElementById("right-btn").addEventListener("touchend", function(event){
         event.preventDefault();
         rightArrow = false;
-    }
-})
+    });
+} else {
+    document.getElementById("game-button-container").style.display = "none";
+
+    document.addEventListener("keydown", function(event){
+        if (event.key == "ArrowLeft"){
+            event.preventDefault();
+            leftArrow = true;
+        } else if (event.key == "ArrowRight"){
+            event.preventDefault();
+            rightArrow = true;
+        } else if (event.key == "S" || event.key == "s") {
+            gameStatus = "in game";
+        } else if (event.key == "B" || event.key == "b") {
+            resetGame();
+        } else if (event.key == "P" || event.key == "p") {
+            if (gameStatus == "pause") {
+                gameStatus = "in game";
+            } else {
+                gameStatus = "pause";
+            }
+        }
+    });
+    
+    document.addEventListener("keyup", function(event){
+        if (event.key == "ArrowLeft"){
+            event.preventDefault();
+            leftArrow = false;
+        } else if (event.key == "ArrowRight"){
+            event.preventDefault();
+            rightArrow = false;
+        }
+    })
+}
+
 
 function movePaddle() {
     if (leftArrow && (paddle.xPos > 0)){
