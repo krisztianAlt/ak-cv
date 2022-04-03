@@ -1,7 +1,7 @@
 var gameRunsOnMobileDevice;
 detectMobileDeviceOrDesktop();
 
-var canvasDefaultWidth = 400;
+var canvasDefaultWidth = 420;
 var canvasDefaultHeight = 550;
 var canvasWidth;
 var canvasHeight;
@@ -124,8 +124,8 @@ function initMessagesAndPrefixes() {
             loseText = "Játék vége. Köszönöm a próbálkozást. Nyomd meg az Új játék gombot az újrakezdéshez.";
         } else {
             infoText = "Mozgatás: balra és jobbra nyíl. Játék indítása: S, szünet: P, vissza az elejére: B.";
-            winText = "Nyertél, gratulálok! Nyomd meg a B billentyűt az újrakezdéshez, vagy térj vissza a főoldalra.";
-            loseText = "Játék vége. Köszönöm a próbálkozást. Kérlek, nyomd meg a B billentyűt az újrakezdéshez.";
+            winText = "Nyertél, gratulálok! Nyomd meg a B gombot az újrakezdéshez, vagy térj vissza a főoldalra.";
+            loseText = "Játék vége. Köszönöm a próbálkozást. Nyomd meg a B gombot az újrakezdéshez.";
         }
 
         messages = {
@@ -467,87 +467,82 @@ function showMessages() {
     showText(separatorString, 0, GAME_CANVAS.height - textMarginTopAndBottom * 2 );
 }
 
-if (gameRunsOnMobileDevice) {
-    document.getElementById("game-button-container").style.display = "block";
-
-    let leftBtn = document.getElementById("left-btn");
-    leftBtn.addEventListener("touchstart", function(event){
-        event.preventDefault();
-        leftBtn.classList.add("active");
-        leftArrow = true;
-    });
-
-    let rightBtn = document.getElementById("right-btn");
-    rightBtn.addEventListener("touchstart", function(event){
-        event.preventDefault();
-        rightBtn.classList.add("active");
-        rightArrow = true;
-    });
-
-    document.getElementById("start-btn").addEventListener("click", function(event){
-        event.preventDefault();
-        gameStatus = "in game";
-    });
-
-    document.getElementById("pause").addEventListener("click", function(event){
-        event.preventDefault();
-        if (gameStatus == "pause") {
-            gameStatus = "in game";
-        } else {
-            gameStatus = "pause";
-        }
-    });
-
-    document.getElementById("new-game").addEventListener("click", function(event){
-        event.preventDefault();
-        resetGame();
-    });
-
-    leftBtn.addEventListener("touchend", function(event){
-        event.preventDefault();
-        leftBtn.classList.remove("active");
-        leftArrow = false;
-    });
-
-    rightBtn.addEventListener("touchend", function(event){
-        event.preventDefault();
-        rightBtn.classList.remove("active");
-        rightArrow = false;
-    });
-} else {
-    document.getElementById("game-button-container").style.display = "none";
-
-    document.addEventListener("keydown", function(event){
-        if (event.key == "ArrowLeft"){
+function initControl() {
+    if (gameRunsOnMobileDevice) {
+        document.getElementById("game-button-container").style.display = "block";
+    
+        document.getElementById("left-btn").addEventListener("touchstart", function(event){
             event.preventDefault();
             leftArrow = true;
-        } else if (event.key == "ArrowRight"){
+        });
+    
+        document.getElementById("right-btn").addEventListener("touchstart", function(event){
             event.preventDefault();
             rightArrow = true;
-        } else if (event.key == "S" || event.key == "s") {
+        });
+    
+        document.getElementById("start-btn").addEventListener("click", function(event){
+            event.preventDefault();
             gameStatus = "in game";
-        } else if (event.key == "B" || event.key == "b") {
-            resetGame();
-        } else if (event.key == "P" || event.key == "p") {
+        });
+    
+        document.getElementById("pause").addEventListener("click", function(event){
+            event.preventDefault();
             if (gameStatus == "pause") {
                 gameStatus = "in game";
             } else {
                 gameStatus = "pause";
             }
-        }
-    });
+        });
     
-    document.addEventListener("keyup", function(event){
-        if (event.key == "ArrowLeft"){
+        document.getElementById("new-game").addEventListener("click", function(event){
+            event.preventDefault();
+            resetGame();
+        });
+    
+        document.getElementById("left-btn").addEventListener("touchend", function(event){
             event.preventDefault();
             leftArrow = false;
-        } else if (event.key == "ArrowRight"){
+        });
+    
+        document.getElementById("right-btn").addEventListener("touchend", function(event){
             event.preventDefault();
             rightArrow = false;
-        }
-    })
+        });
+    } else {
+        document.getElementById("game-button-container").style.display = "none";
+    
+        document.addEventListener("keydown", function(event){
+            if (event.key == "ArrowLeft"){
+                event.preventDefault();
+                leftArrow = true;
+            } else if (event.key == "ArrowRight"){
+                event.preventDefault();
+                rightArrow = true;
+            } else if (event.key == "S" || event.key == "s") {
+                gameStatus = "in game";
+            } else if (event.key == "B" || event.key == "b") {
+                resetGame();
+            } else if (event.key == "P" || event.key == "p") {
+                if (gameStatus == "pause") {
+                    gameStatus = "in game";
+                } else {
+                    gameStatus = "pause";
+                }
+            }
+        });
+        
+        document.addEventListener("keyup", function(event){
+            if (event.key == "ArrowLeft"){
+                event.preventDefault();
+                leftArrow = false;
+            } else if (event.key == "ArrowRight"){
+                event.preventDefault();
+                rightArrow = false;
+            }
+        })
+    }
 }
-
 
 function movePaddle() {
     if (leftArrow && (paddle.xPos > 0)){
@@ -587,3 +582,5 @@ function loop() {
 }
 
 loop();
+
+initControl();
