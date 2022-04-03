@@ -103,7 +103,7 @@ function initCanvasSize() {
     if (window.innerWidth < canvasDefaultWidth + paddingLeft*2) {
         canvasWidth = window.innerWidth - paddingLeft*2;
     } else {
-        canvasWidth = canvasDefaultWidth;
+        canvasWidth = canvasDefaultWidth - paddingLeft*2;
     }
     if (window.innerHeight < canvasDefaultHeight ) {
         canvasHeight = window.innerHeight;
@@ -115,11 +115,17 @@ function initCanvasSize() {
 function initMessagesAndPrefixes() {
     let lang = document.getElementsByTagName('html')[0].getAttribute('lang'); 
     let infoText;
+    let winText;
+    let loseText;
     if (lang === "hu") {
         if (gameRunsOnMobileDevice) {
             infoText = "A játék irányításához használd a játéktér alatti gombokat.";
+            winText = "Nyertél, gratulálok! Nyomd meg az Új játék gombot az újrakezdéshez, vagy térj vissza a főoldalra.";
+            loseText = "Játék vége. Köszönöm a próbálkozást. Nyomd meg az Új játék gombot az újrakezdéshez.";
         } else {
             infoText = "Mozgatás: balra és jobbra nyíl. Játék indítása: S, szünet: P, vissza az elejére: B.";
+            winText = "Nyertél, gratulálok! Nyomd meg a B billentyűt az újrakezdéshez, vagy térj vissza a főoldalra.";
+            loseText = "Játék vége. Köszönöm a próbálkozást. Kérlek, nyomd meg a B billentyűt az újrakezdéshez.";
         }
 
         messages = {
@@ -130,8 +136,8 @@ function initMessagesAndPrefixes() {
                     "Kedvenc rockzenekarok: Queen, Pink Floyd, Omega.",
                     "Szabadidőmben egy gyerekeknek szóló nyelvtani oktatóprogramon dolgozom.",
                     "Egyebek mellett írtam egy horrorregényt, amit a Magvető Kiadó jelentetett meg 2012-ben."],
-            win: "Nyertél, gratulálok! Nyomd meg a B gombot az újrakezdéshez, vagy térj vissza a főoldalra.",
-            lose: "Játék vége. Köszönöm a próbálkozást. Kérlek, nyomd meg a B gombot az újrakezdéshez."
+            win: winText,
+            lose: loseText
         };
         scorePrefix = "Pont";
         levelPrefix = "Szint";
@@ -139,8 +145,12 @@ function initMessagesAndPrefixes() {
     } else if (lang === "en") {
         if (gameRunsOnMobileDevice) {
             infoText = "Use the buttons below to control the game.";
+            winText = "You win! Congratulations! Please, press New Game button to start again.";
+            loseText = "Game over. Please, press New Game button to start again.";
         } else {
             infoText = "Move: left and right arrow. Start game: S, pause: P, back to the beginning: B.";
+            winText = "You win! Congratulations! Please, press B to start again.";
+            loseText = "Game over. Please, press B to start again.";
         }
         messages = {
             infos: infoText,
@@ -150,8 +160,8 @@ function initMessagesAndPrefixes() {
                     "Favourite rock bands: Queen, Pink Floyd, Omega.",
                     "My pet project is a grammar training software.",
                     "I wrote a horror novel that was published by Magvető Kiadó in 2012."],
-            win: "You win! Congratulations! Please, press B to start again.",
-            lose: "Game over. Please, press B to start again."
+            win: winText,
+            lose: loseText
         };
         scorePrefix = "Score";
         levelPrefix = "Level";
