@@ -470,13 +470,17 @@ function showMessages() {
 if (gameRunsOnMobileDevice) {
     document.getElementById("game-button-container").style.display = "block";
 
-    document.getElementById("left-btn").addEventListener("touchstart", function(event){
+    let leftBtn = document.getElementById("left-btn");
+    leftBtn.addEventListener("touchstart", function(event){
         event.preventDefault();
+        leftBtn.classList.add("active");
         leftArrow = true;
     });
 
-    document.getElementById("right-btn").addEventListener("touchstart", function(event){
+    let rightBtn = document.getElementById("right-btn");
+    rightBtn.addEventListener("touchstart", function(event){
         event.preventDefault();
+        rightBtn.classList.add("active");
         rightArrow = true;
     });
 
@@ -499,13 +503,15 @@ if (gameRunsOnMobileDevice) {
         resetGame();
     });
 
-    document.getElementById("left-btn").addEventListener("touchend", function(event){
+    leftBtn.addEventListener("touchend", function(event){
         event.preventDefault();
+        leftBtn.classList.remove("active");
         leftArrow = false;
     });
 
-    document.getElementById("right-btn").addEventListener("touchend", function(event){
+    rightBtn.addEventListener("touchend", function(event){
         event.preventDefault();
+        rightBtn.classList.remove("active");
         rightArrow = false;
     });
 } else {
