@@ -1,3 +1,6 @@
+var gameRunsOnMobileDevice;
+detectMobileDeviceOrDesktop();
+
 var canvasDefaultWidth = 400;
 var canvasDefaultHeight = 550;
 var canvasWidth;
@@ -37,7 +40,7 @@ var brickWidth = (canvasWidth - gap) / columns - gap;
 var brickHeight = ( (canvasHeight - gap) / maxRows - gap ) * 0.4;
 var normalBrickColor = "#4f9563";
 var infoBrickColor = "#e81010";
-var marginTopBricks = textMarginTopAndBottom + textFontSize + gap;
+var marginTopBricks = textMarginTopAndBottom + textFontSize + gap * 1.4;
 var marginLeft = canvasWidth * 0.05;
 var marginRight = canvasWidth * 0.05;
 var bricks = [];
@@ -83,9 +86,23 @@ var ball = {
     yStepSize: defaultBallSpeed * -1
 };
 
+function detectMobileDeviceOrDesktop() {
+    // Detect if the browser runs on mobile device or desktop:
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        gameRunsOnMobileDevice = true;
+    } else {
+        gameRunsOnMobileDevice = false;
+    }
+}
+
+
 function initCanvasSize() {
-    if (window.innerWidth < canvasDefaultWidth) {
-        canvasWidth = window.innerWidth;
+    let gameContainer = document.getElementsByClassName("game-container")[0];
+    let style = gameContainer.currentStyle || window.getComputedStyle(gameContainer);
+    let paddingLeft = parseInt((style.paddingLeft).replace("p",""));
+
+    if (window.innerWidth < canvasDefaultWidth + paddingLeft*2) {
+        canvasWidth = window.innerWidth - paddingLeft*2;
     } else {
         canvasWidth = canvasDefaultWidth;
     }
@@ -139,6 +156,7 @@ function initSeparatorString() {
 }
 
 function createBricks() {
+    console.log("marginTopBricks: " + marginTopBricks);
     for (let rowIndex = 0; rowIndex < actualRows; rowIndex++) {
         for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
             let newBrick = {
