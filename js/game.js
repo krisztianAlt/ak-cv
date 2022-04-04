@@ -577,11 +577,6 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
-window.onload = function() {
-    let testDatas = document.createElement("p");
-    testDatas.textContent = "GAME_CANVAS.width: " + GAME_CANVAS.width + ", GAME_CANVAS.height: " + GAME_CANVAS.height;
-    document.getElementsByClassName("back-to-main-screen")[0].appendChild(testDatas);
-    
-    loop();
-    initControl();
-}
+loop();
+
+initControl();
