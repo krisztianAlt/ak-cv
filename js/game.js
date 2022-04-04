@@ -469,7 +469,7 @@ function showMessages() {
 
 function initControl() {
     if (gameRunsOnMobileDevice) {
-        // document.getElementById("game-button-container").style.display = "block";
+        document.getElementById("game-button-container").style.display = "block";
     
         document.getElementById("left-btn").addEventListener("touchstart", function(event){
             event.preventDefault();
@@ -581,6 +581,7 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
-loop();
-
-initControl();
+window.onload = function() {
+    loop();
+    initControl();
+}
