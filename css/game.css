@@ -77,6 +77,11 @@
     box-shadow: 0 .4em #999;
 }
 
+.move-btns .game-button:focus {
+    outline: none;
+    outline-offset: 0;
+}
+
 .move-btns .game-button:active {
     background-color: #3e8e41;
     box-shadow: 0 .3em #666;
