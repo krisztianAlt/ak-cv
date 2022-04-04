@@ -588,3 +588,9 @@ footer a {
     margin-left: .5em;
     margin-right: .5em;
 }
+
+.manual-hyphen {
+    -webkit-hyphens: manual;
+    -ms-hyphens: manual;
+    hyphens: manual;
+}
