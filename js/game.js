@@ -96,18 +96,10 @@ function detectMobileDeviceOrDesktop() {
 }
 
 function initCanvasSize() {
-    let gameContainer = document.getElementsByClassName("game-container")[0];
-    let style = gameContainer.currentStyle || window.getComputedStyle(gameContainer);
-    let paddingLeft = parseInt((style.paddingLeft).replace("p",""));
-
-    let testDatas = document.createElement("p");
-    testDatas.textContent = "window.innerWidth: " + window.innerWidth + ", window.innerHeight: " + window.innerHeight + ", paddingLeft: " + paddingLeft;
-    document.getElementsByClassName("back-to-main-screen")[0].appendChild(testDatas);
-    
-    if (window.innerWidth < canvasDefaultWidth + paddingLeft*2) {
-        canvasWidth = window.innerWidth - paddingLeft*2;
+    if (window.innerWidth < canvasDefaultWidth) {
+        canvasWidth = window.innerWidth - 20;
     } else {
-        canvasWidth = canvasDefaultWidth - paddingLeft*2;
+        canvasWidth = canvasDefaultWidth;
     }
     if (window.innerHeight < canvasDefaultHeight ) {
         canvasHeight = window.innerHeight;

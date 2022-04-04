@@ -1,13 +1,15 @@
 @import url('../fonts/PressStart2P_init.css');
 
 .game-container {
-    padding: 2em 2em;
+    padding: 2em 0;
 }
 
 .about-game {
     margin: auto;
     max-width: 950px;
     margin-bottom: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .about-game h2 {
